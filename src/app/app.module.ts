@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
  import {MatExpansionModule} from '@angular/material/expansion';
@@ -28,17 +28,18 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select'
 import { MatCheckboxModule } from '@angular/material/checkbox'
-
-
+import { HttpErrorInterceptor } from './HttpErrorInterceptor';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SwapiListComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
+    MatSnackBarModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
@@ -74,7 +75,20 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
     MatTabsModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  exports: [
+  
+  ],
+  providers: [
+    {
+
+      provide: HTTP_INTERCEPTORS,
+ 
+      useClass: HttpErrorInterceptor,
+ 
+      multi: true
+ 
+    },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

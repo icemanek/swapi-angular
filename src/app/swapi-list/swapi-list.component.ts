@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { SwapiConnectionService } from '../swapi-connection.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
@@ -28,17 +27,12 @@ dataSource = new MatTableDataSource(ELEMENT_DATA);
 
 
   ngOnInit() {
-
+    
     this.swApiConnectionService.getAll().subscribe(res => {
-      if(!res){
-        console.log("Błąd API")
-      }
-
      this.dataSource = new MatTableDataSource(res.results);
      this.dataSource.sort = this.sort;
      this.dataSource.paginator = this.paginator;
-    })
-  }
+    })}
 
 
   filter(filterValue: string){
