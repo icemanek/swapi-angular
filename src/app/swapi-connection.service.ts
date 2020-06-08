@@ -9,8 +9,6 @@ export class SwapiConnectionService {
 
   constructor(private http: HttpClient) { }
 
-
-
 getAll(): Observable<any> {
 
     return this.http.get('https://swapi.dev/api/planets/')
