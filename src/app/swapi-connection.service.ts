@@ -10,8 +10,9 @@ import { catchError, timeout } from "rxjs/operators";
 export class SwapiConnectionService {
   constructor(private http: HttpClient, private toastrService: ToastrService) {}
 
+
   getAll(): Observable<any> {
-    return this.http.get("https://swapi.dev/api/planetss/").pipe(
+    return this.http.get("https://swapi.dev/api/planets/").pipe(
       catchError((err) => {
         this.toastrService.error(err.message);
         return throwError(err);
@@ -19,3 +20,4 @@ export class SwapiConnectionService {
     );
   }
 }
+

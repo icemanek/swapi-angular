@@ -1,3 +1,4 @@
+
 .sidenav {
   width: 200px;
 }
@@ -18,9 +19,17 @@
   padding: 10px;
 }
 
+
 .mat-toolbar a:hover {
   color: black;
 }
+
+.mat-toolbar a:hover{
+  color: black;
+}
+
+@media (min-width: 768px){
+
 
 @media (min-width: 768px) {
   .sidenav {
