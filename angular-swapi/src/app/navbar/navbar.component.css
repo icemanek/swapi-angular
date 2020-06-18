@@ -1,3 +1,6 @@
+.sidenav-container {
+  
+}
 
 .sidenav {
   width: 200px;
@@ -13,25 +16,14 @@
   z-index: 1;
 }
 
-.mat-toolbar a {
+.mat-toolbar a{
   text-decoration: none;
   color: white;
   padding: 10px;
 }
 
-
-.mat-toolbar a:hover {
-  color: black;
-}
-
-.mat-toolbar a:hover{
-  color: black;
-}
-
 @media (min-width: 768px){
 
-
-@media (min-width: 768px) {
   .sidenav {
     display: none;
   }
